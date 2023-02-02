@@ -2,7 +2,7 @@ server:
   port: 8888
 spring:
   mvc:
-    static-path-pattern: /resources/**
+    static-path-pattern: /resources/**  #这个会导致welcome page失效
   web:
     resources:
-      static-locations: classpath:/public/
+      static-locations: [classpath:/public/,classpath:/static/]
