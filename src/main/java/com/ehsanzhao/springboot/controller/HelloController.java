@@ -12,7 +12,7 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String hello(){
-       return "Hi,Spring boot";
+       return "Hi,Spring boot 2";
     }
 
 }
