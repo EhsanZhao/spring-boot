@@ -1,8 +1,12 @@
 server:
   port: 8888
-#spring:
-#  mvc:
-#    static-path-pattern: /resources/**  #这个会导致welcome page和favicon失效
-#  web:
-#    resources:
-#      static-locations: [classpath:/public/,classpath:/static/]
+spring:
+  mvc:
+    static-path-pattern: /resources/**  #这个会导致welcome page和favicon失效
+    hiddenmethod:
+      filter:
+        enabled: true
+  web:
+    resources:
+      static-locations: [classpath:/public/,classpath:/static/]
+
