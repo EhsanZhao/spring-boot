@@ -8,5 +8,5 @@ spring:
         enabled: true
   web:
     resources:
-      static-locations: [classpath:/public/,classpath:/static/]
+      static-locations: [classpath:/public/,classpath:/static/] #设置静态资源文件夹
 
