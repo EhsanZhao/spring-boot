@@ -9,4 +9,10 @@ spring:
   web:
     resources:
       static-locations: [classpath:/public/,classpath:/static/] #设置静态资源文件夹
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+
 
