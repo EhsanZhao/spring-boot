@@ -29,15 +29,15 @@ public class LoginIntercepter implements HandlerInterceptor {
             return true;
         }
         //拦截住,未登录，跳转到登录页
-        request.setAttribute("msg","请先登陆");
-        request.getRequestDispatcher("/").forward(request,response);
-//        response.sendRedirect("/");
+//        request.setAttribute("msg","请先登陆");
+//        request.getRequestDispatcher("/").forward(request,response);
+        response.sendRedirect("/");
         return false;
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+
     }
 
     /**
@@ -50,6 +50,6 @@ public class LoginIntercepter implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
+
     }
 }
