@@ -9,7 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @author zhaoyuan
  * @date 2023/1/18
  */
-@ServletComponentScan(basePackages = "com.ehsanzhao.springboot")
+//@ServletComponentScan(basePackages = "com.ehsanzhao.springboot")
 @SpringBootApplication
 public class MainApplication {
 
