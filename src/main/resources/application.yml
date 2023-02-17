@@ -16,10 +16,35 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://xxx:3307/mysql
-    username: xxx
-    password: xxx
-    filters: stat,wall
+    url: jdbc:mysql://101.132.245.128:3307/mysql
+    username: zhaoyuan
+    password: osalien.com
+#    filters: stat,wall
+    druid:
+      # 开启功能 sql监控、防火墙、日志
+      filters: stat,wall,slf4j
+      # 监控SpringBean
+      aop-patterns: com.ehsanzhao.springboot.*
+      #开启监控页 和登陆账号
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: 123456
+      #开启web监控
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      #对上面filters开启功能的详细配置
+      filter:
+        stat:
+          slow-sql-millis: 1000
+          log-slow-sql: true
+          enabled: true
+        wall:
+          enabled: true
+
+
   jdbc:
     template:
       query-timeout: 3

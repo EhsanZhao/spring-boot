@@ -20,7 +20,8 @@ import java.util.Arrays;
  * @author zhaoyuan
  * @date 2023/2/17
  */
-@Configuration
+@Deprecated
+//@Configuration
 public class MyDataSourceConfig {
 
     @Bean
