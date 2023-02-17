@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Arrays;
 
 /**
+ * 原生组件注入
  * @author zhaoyuan
  * @date 2023/2/16
  */
