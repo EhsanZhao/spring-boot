@@ -1,25 +1,32 @@
+########## tomcat容器配置 ##########
 server:
   port: 8888
+
+########## spring配置 ##########
 spring:
+  ########## mvc配置 ##########
   mvc:
     static-path-pattern: /resources/**  #这个会导致welcome page和favicon失效
     hiddenmethod:
       filter:
         enabled: true
+  ########## 静态资源配置 ##########
   web:
     resources:
       static-locations: [classpath:/public/,classpath:/static/] #设置静态资源文件夹
+  ########## servlet配置 ##########
   servlet:
     multipart:
       max-file-size: 10MB
       max-request-size: 100MB
-
+  ########## 数据源配置 ##########
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://101.132.245.128:3307/mysql
     username: zhaoyuan
     password: osalien.com
 #    filters: stat,wall
+    ########## 数据连接池配置 ##########
     druid:
       # 开启功能 sql监控、防火墙、日志
       filters: stat,wall,slf4j
@@ -44,10 +51,19 @@ spring:
         wall:
           enabled: true
 
-
+  ########## jdbc配置 ##########
   jdbc:
     template:
       query-timeout: 3
 
+########## mybatis配置 ##########
+mybatis:
+  ##  mybatis配置文件   与下方的configuration配置冲突，只能选其一种方式配置
+#  config-location: classpath:mybatis/mybatis-config.xml
+  ##  mybatis xml映射文件
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  ## 驼峰映射开启
+  configuration:
+    map-underscore-to-camel-case: true
 
 
