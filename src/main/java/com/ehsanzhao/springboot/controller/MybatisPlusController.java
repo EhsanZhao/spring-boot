@@ -1,5 +1,6 @@
 package com.ehsanzhao.springboot.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ehsanzhao.springboot.entity.User;
 import com.ehsanzhao.springboot.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,13 @@ public class MybatisPlusController {
         List<User> user = userService.list();
         log.info("查询结果：{}",user);
         return user;
+    }
+
+    @GetMapping("/page")
+    public Page<User> page(@RequestParam(value = "pn",defaultValue = "1") Integer pn){
+        Page<User> page = userService.page(new Page<User>(pn, 2));
+        log.info("查询结果：{}",page);
+        return page;
     }
 
 
