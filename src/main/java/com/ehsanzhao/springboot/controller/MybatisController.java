@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author zhaoyuan
  * @date 2023/2/17
@@ -25,6 +27,13 @@ public class MybatisController {
     @GetMapping
     public User query(@RequestParam("user") String userName){
         User user = userMapper.getUser(userName);
+        log.info("查询结果：{}",user);
+        return user;
+    }
+
+    @GetMapping("/annontion")
+    public List<User> queryBuHost(@RequestParam("host") String host){
+        List<User> user = userMapper.getUserByHost(host);
         log.info("查询结果：{}",user);
         return user;
     }

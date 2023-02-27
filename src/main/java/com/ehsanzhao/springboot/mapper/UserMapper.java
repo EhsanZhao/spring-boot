@@ -2,6 +2,9 @@ package com.ehsanzhao.springboot.mapper;
 
 import com.ehsanzhao.springboot.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @author zhaoyuan
@@ -11,5 +14,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
 
     User getUser(String user);
+
+    @Select("select * from user where host = #{host}")
+    List<User> getUserByHost(String host);
 
 }
