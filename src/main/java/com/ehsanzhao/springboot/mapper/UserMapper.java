@@ -1,5 +1,6 @@
 package com.ehsanzhao.springboot.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ehsanzhao.springboot.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -9,11 +10,12 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
+ * mybatis-plus优点，只需要继承BaseMapper就可以拥有CRUD功能
  * @author zhaoyuan
  * @date 2023/2/27
  */
 @Mapper
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User> {
 
     User getUser(String user);
 

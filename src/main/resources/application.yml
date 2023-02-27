@@ -56,7 +56,7 @@ spring:
     template:
       query-timeout: 3
 
-########## mybatis配置 ##########
+########## mybatis配置(mybatis-plus时不生效) ##########
 mybatis:
   ##  mybatis配置文件   与下方的configuration配置冲突，只能选其一种方式配置
 #  config-location: classpath:mybatis/mybatis-config.xml
@@ -67,4 +67,8 @@ mybatis:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+########## mybatis-plus配置 ##########
+mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
