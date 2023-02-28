@@ -3,6 +3,8 @@ package com.ehsanzhao.springboot.config;
 import com.alibaba.druid.support.spring.stat.BeanTypeAutoProxyCreator;
 import com.alibaba.druid.support.spring.stat.DruidStatInterceptor;
 import com.ehsanzhao.springboot.intercepter.LoginIntercepter;
+import com.ehsanzhao.springboot.intercepter.RedisUrlCountIntercepter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +28,14 @@ import java.util.Arrays;
 public class AdminWebConfig implements WebMvcConfigurer {
 
     /**
+     * Filter、Intercepter 几乎功能一致
+     * Filter是Servlet的原生组件，脱离的Spring依旧可以使用
+     * Intercepter是Spring定义的接口，可以使用Spring的自动装配等功能
+     */
+    @Autowired
+    private RedisUrlCountIntercepter redisUrlCountIntercepter;
+
+    /**
      * 访问 /aa/** 都有请求都去 classpath:/static/ 下面进行匹配
      * @param registry
      */
@@ -41,6 +51,8 @@ public class AdminWebConfig implements WebMvcConfigurer {
                 //所有资源都会拦截，静态资源也会被拦截
                 .addPathPatterns("/**")
                 .excludePathPatterns("/","/login","/resources/**","/hello","/data/**","/error","/aa/**");
+
+        registry.addInterceptor(redisUrlCountIntercepter).addPathPatterns("/data/**");
     }
 
 //    @Bean

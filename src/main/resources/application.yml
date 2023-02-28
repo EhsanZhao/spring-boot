@@ -55,6 +55,18 @@ spring:
   jdbc:
     template:
       query-timeout: 3
+  ########## redis配置 ##########
+  redis:
+#    password: ehsanzhao.com
+#    port: 6380
+#    host: 127.0.0.1
+    url: redis://:ehsanzhao.com@127.0.0.1:6380
+    # 切换jedis
+    client-type: lettuce
+    lettuce:
+      pool:
+        max-active: 10
+        min-idle: 5
 
 ########## mybatis配置(mybatis-plus时不生效) ##########
 mybatis:
@@ -62,13 +74,13 @@ mybatis:
 #  config-location: classpath:mybatis/mybatis-config.xml
   ##  mybatis xml映射文件
   mapper-locations: classpath:mybatis/mapper/*.xml
-  ## 驼峰映射开启
   configuration:
+    ## 驼峰映射开启
     map-underscore-to-camel-case: true
+    ## 输出日志到控制台
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 ########## mybatis-plus配置 ##########
 mybatis-plus:
 #  configuration:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
