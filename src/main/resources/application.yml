@@ -98,3 +98,7 @@ management:
     metrics:
       enabled: true
 
+info:
+  appName: ehsanlab-spring-boot
+  mavenProjectName: @project.artifactId@
+  mavenProjectVersion: @project.version@
