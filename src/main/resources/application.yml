@@ -84,3 +84,17 @@ mybatis:
 mybatis-plus:
 #  configuration:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+########## actuator配置 ##########
+management:
+  endpoints:
+    enabled-by-default: true  #默认开启所有监控端点
+    web:
+      exposure:
+        include: '*' #以web方式暴露所有端点
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+
