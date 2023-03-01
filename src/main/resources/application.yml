@@ -67,6 +67,12 @@ spring:
       pool:
         max-active: 10
         min-idle: 5
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+  application:
+    name: ehsanzhao-spring-boot
 
 ########## mybatis配置(mybatis-plus时不生效) ##########
 mybatis:
@@ -102,3 +108,4 @@ info:
   appName: ehsanlab-spring-boot
   mavenProjectName: @project.artifactId@
   mavenProjectVersion: @project.version@
+
