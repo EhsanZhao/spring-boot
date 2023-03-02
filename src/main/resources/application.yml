@@ -73,6 +73,19 @@ spring:
         url: http://localhost:8080
   application:
     name: ehsanzhao-spring-boot
+  ########## profile配置 ##########
+  profiles:
+    active: pro
+    group:
+      pro:
+          - prod
+          - uat
+      test:
+          - dev
+
+
+person:
+  name: default
 
 ########## mybatis配置(mybatis-plus时不生效) ##########
 mybatis:
@@ -108,4 +121,5 @@ info:
   appName: ehsanlab-spring-boot
   mavenProjectName: @project.artifactId@
   mavenProjectVersion: @project.version@
+
 
