@@ -123,3 +123,7 @@ info:
   mavenProjectVersion: @project.version@
 
 
+########## 自定义starter配置 ##########
+hello:
+  prefix: hiahiahia
+  suffix: 欢迎使用自定义starter

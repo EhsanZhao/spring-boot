@@ -102,6 +102,13 @@
 <!--            <artifactId>junit</artifactId>-->
 <!--            <scope>test</scope>-->
 <!--        </dependency>-->
+
+<!--        自定义starter包-->
+        <dependency>
+            <groupId>com.ehsanzhao</groupId>
+            <artifactId>hello-spring-boot-starter</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 

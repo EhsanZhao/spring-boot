@@ -1,5 +1,6 @@
 package com.ehsanzhao.springboot.controller;
 
+import com.ehsanzhao.hellospringbootstarterautoconfigure.service.HelloService;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class HelloController {
     @Value("${person.age:100}")
     private String age;
 
+    @Autowired
+    private HelloService helloSerive;
+
     public HelloController(MeterRegistry meterRegistry) {
         counter = meterRegistry.counter("helloController.hello.count");
     }
@@ -34,6 +38,12 @@ public class HelloController {
         counter.increment();
 //        int num = 10/0;
        return "Hi,"+name+","+age;
+    }
+
+    @RequestMapping("/sayhello")
+    @ResponseBody
+    public String sayhello(){
+        return helloSerive.sayHello("ehsanzhao-starter");
     }
 
 }

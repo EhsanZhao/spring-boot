@@ -50,7 +50,7 @@ public class AdminWebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginIntercepter())
                 //所有资源都会拦截，静态资源也会被拦截
                 .addPathPatterns("/**")
-                .excludePathPatterns("/","/login","/resources/**","/hello","/data/**","/error","/aa/**");
+                .excludePathPatterns("/","/login","/resources/**","/hello","/sayhello","/data/**","/error","/aa/**");
 
         registry.addInterceptor(redisUrlCountIntercepter).addPathPatterns("/data/**");
     }
